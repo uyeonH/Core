@@ -3,7 +3,6 @@ package yooyeon.core.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import yooyeon.core.discount.DiscountPolicy;
-import yooyeon.core.discount.FixDiscountPolicy;
 import yooyeon.core.discount.RateDiscountPolicy;
 import yooyeon.core.member.repository.MemoryMemberRepository;
 import yooyeon.core.member.service.MemberService;
@@ -16,16 +15,19 @@ public class AppConfig { // 팩토리 메소드 통해서 빈 등록하는 방�
 
     @Bean
     public MemberService memberService() {
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public MemoryMemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
