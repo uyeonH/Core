@@ -12,7 +12,7 @@ import yooyeon.core.order.OrderService;
 import yooyeon.core.order.OrderServiceImpl;
 
 @Configuration
-public class AppConfig {
+public class AppConfig { // 팩토리 메소드 통해서 빈 등록하는 방식
 
     @Bean
     public MemberService memberService() {
