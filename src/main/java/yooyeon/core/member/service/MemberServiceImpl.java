@@ -1,12 +1,16 @@
 package yooyeon.core.member.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import yooyeon.core.member.domain.Member;
 import yooyeon.core.member.repository.MemberRepository;
 
-public class MemberServiceImpl implements MemberService{
+@Component
+public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
@@ -22,7 +26,7 @@ public class MemberServiceImpl implements MemberService{
     }
 
     //테스트용도
-    public MemberRepository getMemberRepository(){
+    public MemberRepository getMemberRepository() {
         return memberRepository;
     }
 }

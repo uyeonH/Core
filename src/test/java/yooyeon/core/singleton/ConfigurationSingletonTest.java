@@ -27,4 +27,11 @@ public class ConfigurationSingletonTest {
 
         Assertions.assertThat(memberRepository).isEqualTo(memberRepository1).isEqualTo(memberRepository2);
     }
+
+    @Test
+    void configurationDeep() {
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+        System.out.println("bean = " + bean.getClass()); // cglib
+    }
 }

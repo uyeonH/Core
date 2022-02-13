@@ -1,14 +1,18 @@
 package yooyeon.core.order;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import yooyeon.core.discount.DiscountPolicy;
 import yooyeon.core.member.domain.Member;
 import yooyeon.core.member.repository.MemberRepository;
 
+@Component
 public class OrderServiceImpl implements OrderService {
 
-    private final MemberRepository memberRepository ;
+    private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
@@ -22,7 +26,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     //테스트용도
-    public MemberRepository getMemberRepository(){
+    public MemberRepository getMemberRepository() {
         return memberRepository;
     }
 }
