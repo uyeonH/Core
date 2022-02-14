@@ -1,8 +1,10 @@
 package yooyeon.core.discount;
 
+import org.springframework.stereotype.Component;
 import yooyeon.core.member.domain.Grade;
 import yooyeon.core.member.domain.Member;
 
+@Component
 public class FixDiscountPolicy implements DiscountPolicy {
     private int discountFixAmount = 1000;
 
