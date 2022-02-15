@@ -10,13 +10,11 @@ public class BeanLifeCycleTest {
 
     @Test
     public void lifeCycleTest() {
-
         ConfigurableApplicationContext ac = new AnnotationConfigApplicationContext(LifeCycleConfig.class);
         //NetworkClient client = ac.getBean(NetworkClient.class);
         //NetworkClient2 client = ac.getBean(NetworkClient2.class);
         NetworkClient3 client = ac.getBean(NetworkClient3.class);
         ac.close();
-
     }
 
     @Configuration
@@ -35,6 +33,7 @@ public class BeanLifeCycleTest {
             networkClient2.setUrl("http://sample.dev");
             return networkClient2;
         }
+
         @Bean
         public NetworkClient3 networkClient3() {
             NetworkClient3 networkClient3 = new NetworkClient3();
